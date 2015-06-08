@@ -1,0 +1,28 @@
+{
+	"name": "cogitoweb/parameters-bundle",
+	"description": "Read application-related parameters from the database",
+	"type": "symfony-bundle",
+	"authors": [
+		{
+			"name": "Daniele Artico",
+			"email": "daniele.artico@cogitoweb.it"
+		}
+	],
+	"keywords": [
+		"parameters bundle",
+		"application parameters",
+		"application-related parameters",
+		"database parameters",
+		"db parameters"
+	],
+	"autoload": {
+		"psr-0": {
+			"Cogitoweb\\ParametersBundle": ""
+		}
+	},
+	"require": {
+		"symfony/symfony": "~2.3",
+		"gedmo/doctrine-extensions": "~2.4"
+	},
+	"target-dir" : "Cogitoweb/ParametersBundle"
+}
