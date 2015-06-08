@@ -1,4 +1,4 @@
 services:
-#    cogitoweb_parameters.example:
-#        class: Cogitoweb\ParametersBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    cogitoweb_parameters:
+        class: Cogitoweb\ParametersBundle\Services\ParametersService
+        arguments: [@doctrine.ORM.entity_manager]
