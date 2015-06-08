@@ -22,7 +22,7 @@
 	},
 	"require": {
 		"symfony/symfony": "~2.3",
-		"gedmo/doctrine-extensions": "~2.4"
+		"gedmo/doctrine-extensions": "~2.3"
 	},
 	"target-dir" : "Cogitoweb/ParametersBundle"
 }
