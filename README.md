@@ -1,2 +1,2 @@
 # ParametersBundle
-un bundle per gestire paramnetri generici di applicazione
+Use this bundle to retrieve parameters from a database instead of a static file.
