@@ -1,0 +1,4 @@
+services:
+    cogitoweb_parameters:
+        class: Cogitoweb\ParametersBundle\Services\ParametersService
+        arguments: [@doctrine.ORM.entity_manager]
