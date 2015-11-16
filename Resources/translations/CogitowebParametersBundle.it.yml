@@ -1,0 +1,33 @@
+## YAML Template.
+---
+Parameters:					Parametri
+
+breadcrumb:
+    link_parameter_delete:	Elimina parametro
+    link_parameter_list:	Lista parametri
+
+filter:
+    label_key:				Chiave
+    label_value:			Valore
+    label_deletable:		Cancellabile
+
+form:
+    label_key:				Chiave
+    label_value:			Valore
+    label_deletable:		Cancellabile
+
+list:
+    label_key:				Chiave
+    label_value:			Valore
+    label_deletable:		Cancellabile
+    label__action:			Azioni
+
+show:
+    label_key:				Chiave
+    label_value:			Valore
+    label_deletable:		Cancellabile
+    
+    label_created_by:		Creato da
+    label_updated_by:		Modificato da
+    label_created_at:		Data e ora creazione
+    label_updated_at:		Data e ora ultima modifica
