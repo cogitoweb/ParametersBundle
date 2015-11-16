@@ -10,7 +10,20 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class ParameterAdmin extends Admin
 {
-    /**
+    protected $datagridValues = [
+		'_sort_by'    => 'key',
+		'_sort_order' => 'ASC'
+	];
+	
+	/**
+	 * {@inheritdoc}
+	 */
+	protected function configureRoutes(RouteCollection $collection)
+	{
+		$collection->remove('batch');
+	}
+	
+	/**
      * @param DatagridMapper $datagridMapper
      */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -18,6 +31,7 @@ class ParameterAdmin extends Admin
         $datagridMapper
             ->add('key')
             ->add('value')
+            ->add('deletable')
         ;
     }
 
@@ -27,15 +41,19 @@ class ParameterAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+			->remove('batch')
+			
             ->add('key')
             ->add('value')
+            ->add('deletable')
             ->add('_action', 'actions', array(
-                'actions' => array(
-                    'show' => array(),
-                    'edit' => array(),
-                    'delete' => array(),
-                )
-            ))
+				'template' => 'CogitowebParametersBundle:CRUD:list__action.html.twig',
+				'actions'  => array(
+	                'show'   => array(),
+		            'edit'   => array(),
+			        'delete' => array('template' => 'CogitowebParametersBundle:CRUD:list__action_delete.html.twig'),
+				)
+			))
         ;
     }
 
@@ -45,7 +63,7 @@ class ParameterAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('key')
+            ->add('key', null, ['read_only' => !$this->isNew()])
             ->add('value')
         ;
     }
@@ -58,10 +76,21 @@ class ParameterAdmin extends Admin
         $showMapper
             ->add('key')
             ->add('value')
+            ->add('deletable')
             ->add('createdBy')
             ->add('updatedBy')
             ->add('createdAt')
             ->add('updatedAt')
         ;
     }
+	
+	/**
+	 * Is object new? 
+	 *
+	 * @return bool
+	 */
+	protected function isNew()
+	{
+		return ($this->getRoot()->getSubject() && $this->getRoot()->getSubject()->getId()) ? false : true;
+	}
 }

@@ -1,0 +1,1 @@
+ALTER TABLE cogitoweb_parameters_bundle ADD COLUMN deletable boolean NOT null DEFAULT false;

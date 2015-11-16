@@ -50,6 +50,15 @@ class Parameter {
 	
 	/**
 	 *
+	 * @var boolean
+	 * 
+	 * @ORM\Column(type="boolean", options={"default": false})
+	 * @Assert\NotNull()
+	 */
+	protected $deletable = false;
+	
+	/**
+	 *
 	 * @var string
 	 * 
 	 * @ORM\Column(type="text", nullable=true)
@@ -114,5 +123,28 @@ class Parameter {
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * Set deletable
+     *
+     * @param  boolean $deletable
+     * @return Parameter
+     */
+    public function setDeletable($deletable)
+    {
+        $this->deletable = $deletable;
+
+        return $this;
+    }
+
+    /**
+     * Get deletable
+     *
+     * @return boolean 
+     */
+    public function getDeletable()
+    {
+        return $this->deletable;
     }
 }
