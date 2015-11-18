@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -23,6 +24,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *		)
  *	})
  * @ORM\Entity
+ * @UniqueEntity("key")
  */
 class Parameter {
 	use BlameableEntity;
