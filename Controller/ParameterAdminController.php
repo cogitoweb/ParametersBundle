@@ -27,6 +27,6 @@ class ParameterAdminController extends CRUDController
 			throw new AccessDeniedException();
 		}
 		
-		parent::deleteAction($id);
+		return parent::deleteAction($id);
 	}
 }

@@ -3,6 +3,6 @@ services:
         class: Cogitoweb\ParametersBundle\Admin\ParameterAdmin
         arguments: [~, Cogitoweb\ParametersBundle\Entity\Parameter, CogitowebParametersBundle:ParameterAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Parameter, label_translator_strategy: sonata.admin.label.strategy.underscore}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Parameters, label_translator_strategy: sonata.admin.label.strategy.underscore}
         calls:
             - [ setTranslationDomain, [CogitowebParametersBundle]]
