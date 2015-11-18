@@ -67,6 +67,10 @@ class ParameterAdmin extends Admin
             ->add('key', null, ['read_only' => !$this->isNew()])
             ->add('value')
         ;
+		
+		if ($this->isNew()) {
+			$formMapper->add('deletable', null, ['required' => false]);
+		}
     }
 
     /**
