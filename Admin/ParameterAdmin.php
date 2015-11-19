@@ -64,7 +64,7 @@ class ParameterAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('key', null, ['read_only' => !$this->isNew()])
+            ->add('key', null, ['read_only' => !$this->isNew() && !$this->isGranted('ROLE_SUPER_ADMIN')])
             ->add('value')
         ;
 		
