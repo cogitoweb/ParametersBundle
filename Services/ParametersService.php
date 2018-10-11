@@ -2,6 +2,7 @@
 
 namespace Cogitoweb\ParametersBundle\Services;
 
+use Cogitoweb\ParametersBundle\Entity\Parameters;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Query;
 
