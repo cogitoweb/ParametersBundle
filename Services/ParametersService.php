@@ -26,6 +26,36 @@ class ParametersService
 		$this->cache        = [];
 		$this->cacheUpdated = false;
 	}
+
+    /**
+     * Set parameter
+     *
+     * @param string $key
+     * @param string $value
+     */
+    public function setParameter($key, $value)
+    {
+        // On first run, update cache
+        if (!$this->cacheUpdated) {
+            $this->updateCache();
+        }
+
+        if (array_key_exists($key, $this->cache)) {
+            $q = $this->em->createQuery('UPDATE CogitowebParametersBundle:Parameter p SET p.value = :value WHERE p.key = :key');
+            $q->setParameter('key', (string) $key);
+            $q->setParameter('value', (string) $value);
+            $q->execute();
+        } else {
+            $parameter = new Parameter();
+            $parameter->setKey((string) $key);
+            $parameter->setValue((string) $value);
+
+            $this->em->persist($parameter);
+            $this->em->flush($parameter);
+        }
+
+        $this->updateCache();
+    }
 	
 	/**
 	 * Get parameter
